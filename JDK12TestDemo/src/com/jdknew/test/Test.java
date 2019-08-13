@@ -9,7 +9,7 @@ public class Test {
 	public final static int FIVE=5;
 	
 	public static void testSwitch(int a) {
-		switch(a) {
+		switch(a) {//case 可以引用表达式
 			case ONE -> System.out.println("1");
 			case TWO -> System.out.println("2");
 			case THREE -> System.out.println("3");
