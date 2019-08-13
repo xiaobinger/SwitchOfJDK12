@@ -1,5 +1,7 @@
 package com.jdknew.test;
 
+import java.util.function.Function;
+
 public class Test {
 	
 	public final static int ONE=1;
@@ -18,7 +20,31 @@ public class Test {
 		}
 	}
 	
+	/**
+	 * String支持transform、indent操作
+	 * 将字符串转化成想要的结果
+	 * @param str
+	 */
+	public static void testStringTransform(String str) {
+		System.out.println(str.transform(new Function<String, String>() {
+
+			@Override
+			public String apply(String t) {
+				// TODO Auto-generated method stub
+				/*
+				 * indent(n):n>0 每一行前面增加n个空格符；
+				 * n<0去掉每一行前面的n个空格符，如果不够n个空格符则删掉全部空格符；
+				 * n=0保持不变
+				 */
+				return t.indent(-3);
+			}
+			
+		}));
+	}
+	
+	
 	public static void main(String[] args) {
-		testSwitch(5);
+		//testSwitch(5);
+		testStringTransform("   miss you");
 	}
 }
