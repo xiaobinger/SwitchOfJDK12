@@ -5,9 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.List;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 
 public class Test {
@@ -18,14 +16,21 @@ public class Test {
 	public final static int FOUR=4;
 	public final static int FIVE=5;
 	
+	
+	/**
+	 * switch不仅可以作为语句，也可以作为表达式存在
+	 * @param a
+	 */
 	public static void testSwitch(int a) {
-		switch(a) {//case 可以引用表达式
-			case ONE -> System.out.println("1");
-			case TWO -> System.out.println("2");
-			case THREE -> System.out.println("3");
-			case FOUR -> System.out.println("4");
-			case FIVE -> System.out.println("5");
-		}
+		int result=switch(a) {
+			case ONE -> 1;
+			case TWO -> 2;
+			case THREE -> 3;
+			case FOUR -> 4;
+			case FIVE -> 5;
+			default -> 0;
+		};
+		System.out.println(result);
 	}
 	
 	/**
@@ -67,8 +72,8 @@ public class Test {
 	
 	
 	public static void main(String[] args) {
-		//testSwitch(5);
-		testStringTransform("   miss you");
+		testSwitch(5);
+		//testStringTransform("   miss you");
 		
 		try {
 			FileWriter w1=new FileWriter("d:\\temp1.txt");
